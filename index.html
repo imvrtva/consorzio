@@ -99,6 +99,20 @@
       padding: 0.85rem 0;
       gap: 1rem;
     }
+    .nav-icon {
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: 0.2s;
+}
+
+.nav-icon:hover {
+  color: var(--primary);
+  background: rgba(0,128,55,0.06);
+}
 
     .logo {
       display: flex;
@@ -831,10 +845,10 @@
       <div class="container">
         <nav class="nav">
           <div class="logo">
-            <img src="logo.png" alt="Logo Cavallino-Treporti" style="height: 42px; width:auto;" />
+            <img src="logo.png" alt="Logo Cavallino-Treporti" style="height:42px;width:auto;" />
             <div>
               Cavallino-Treporti<br />
-              <span style="font-size: 0.72rem; font-weight: 400; color: #6b7280;">Experience</span>
+              <span style="font-size:0.72rem;font-weight:400;color:#6b7280;">Experience</span>
             </div>
           </div>
 
@@ -846,14 +860,16 @@
           </div>
 
           <div class="nav-cta">
-            <button class="btn btn-outline"
-              onclick="document.getElementById('pacchetti').scrollIntoView({behavior:'smooth'})">
-              Vedi pacchetti
-            </button>
-            <button class="btn btn-primary"
-              onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
-              Prenota ora
-            </button>
+            <!-- Icona Account -->
+            <a href="login.html" class="nav-icon" title="Accedi / Registrati">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M4 21v-2a4 4 0 0 1 3-3.87"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+
           </div>
         </nav>
       </div>
@@ -864,16 +880,20 @@
       <!-- HERO -->
       <section class="hero" style="background-image:url('Pordelio.jpg');">
         <div class="container hero-inner">
+          
           <div class="hero-copy">
             <div class="eyebrow">Cavallino-Treporti Experience</div>
+
             <h1 class="hero-title">
-              Esplora la laguna, le dune e la natura
-              <span>con due pacchetti esperienziali unici.</span>
+              Vivi Cavallino-Treporti con due pacchetti ufficiali
+              <span>pensati per scoprire natura, cultura e laguna.</span>
             </h1>
+
             <p class="hero-subtitle">
-              Due proposte pensate per famiglie, coppie e viaggiatori curiosi:
-              scopri il territorio in modo autentico, lento e coinvolgente.
+              Due proposte create per famiglie, coppie e viaggiatori curiosi:
+              una scoperta autentica tra dune, pinete e scorci lagunari.
             </p>
+
             <div class="hero-ctas">
               <button class="btn btn-primary"
                 onclick="document.getElementById('pacchetti').scrollIntoView({behavior:'smooth'})">
@@ -884,87 +904,90 @@
                 Prenota la tua esperienza
               </button>
             </div>
+
             <div class="hero-meta">
               <div class="hero-meta-item">
-                <div class="dot"></div> Weekend attivi da aprile a ottobre
+                <div class="dot"></div> Attivi da aprile a ottobre
               </div>
               <div class="hero-meta-item pill">
-                Ideale per famiglie, coppie & gruppi ristretti
+                Ideali per famiglie, coppie e piccoli gruppi
               </div>
             </div>
           </div>
 
           <div class="hero-media">
             <div class="hero-card">
-              <div class="hero-badge-floating">Lagoon & Nature</div>
+              <div class="hero-badge-floating">Pacchetti ufficiali</div>
 
               <div class="hero-tagline">Dove mare e laguna si incontrano</div>
-              <div class="hero-location">Cavallino-Treporti, tra Venezia e la laguna</div>
+              <div class="hero-location">Cavallino-Treporti · Venezia</div>
 
               <div class="hero-photo">
                 <div class="hero-photo-overlay">
                   <div>
-                    <div style="font-size: 0.78rem; opacity:.9;">Tramonto sulla laguna</div>
-                    <div style="font-size: 0.72rem; opacity:.8;">Percorsi slow tra acqua e natura</div>
+                    <div style="font-size:0.78rem;opacity:.9;">Tramonto sulla laguna</div>
+                    <div style="font-size:0.72rem;opacity:.8;">Percorsi slow tra acqua e natura</div>
                   </div>
                   <div class="hero-photo-badge">
                     Esperienze guidate<br />
-                    <span style="font-size: 0.7rem; opacity:.85;">fino a 4 giorni</span>
+                    <span style="font-size:0.7rem;opacity:.85;">3 o 4 giorni</span>
                   </div>
                 </div>
               </div>
 
               <div class="hero-highlight">
-                <div class="hero-highlight-title">2 pacchetti, 4 opzioni</div>
+                <div class="hero-highlight-title">I due pacchetti ufficiali</div>
+
                 <div class="hero-highlight-row">
-                  <span>Hidden Cavallino</span><span>Family & discovery</span>
+                  <span>Hidden Cavallino</span><span>Discovery Experience</span>
                 </div>
+
                 <div class="hero-highlight-row">
-                  <span>Lagoon Slow</span><span>Natura & cultura</span>
+                  <span>Lagoon Slow</span><span>Natura & Cultura</span>
                 </div>
               </div>
+
             </div>
           </div>
+
         </div>
       </section>
 
-      <!-- PERCHÉ SCEGLIERE -->
+      <!-- PERCHÉ -->
       <section id="perche">
         <div class="container">
           <div class="section-header reveal">
-            <div class="section-eyebrow">Perché scegliere questi pacchetti</div>
-            <h2 class="section-title">Un modo diverso di vivere Cavallino-Treporti</h2>
+            <div class="section-eyebrow">Perché scegliere i nostri pacchetti</div>
+            <h2 class="section-title">Il modo più autentico per vivere Cavallino-Treporti</h2>
             <p class="section-desc">
-              Non solo mare: natura, cultura, leggende e momenti lenti costruiti
-              per valorizzare il territorio e far vivere un’esperienza completa.
+              Non solo mare: percorsi lenti, natura, cultura e attività pensate per valorizzare
+              l’identità del territorio e coinvolgere ogni fascia d’età.
             </p>
           </div>
 
           <div class="why-grid">
+
             <div class="why-card reveal">
               <div class="why-emoji">🌊</div>
               <div class="why-title">100% natura</div>
               <div class="why-text">
-                Dune, pinete, laguna e spiagge: i percorsi sono pensati per far
-                scoprire il lato più autentico di Cavallino-Treporti.
+                Laguna, pinete, dune e sentieri naturali: scopri ambienti preziosi e protetti.
               </div>
             </div>
 
             <div class="why-card reveal">
               <div class="why-emoji">🧒</div>
-              <div class="why-title">Esperienze family-friendly</div>
+              <div class="why-title">Family-friendly</div>
               <div class="why-text">
-                Fiabe, leggende e tappe pensate per incuriosire i più piccoli
-                senza annoiare gli adulti.
+                Hidden Cavallino integra mini-fiabe e leggende per coinvolgere i più piccoli.
               </div>
             </div>
 
             <div class="why-card reveal">
               <div class="why-emoji">📚</div>
-              <div class="why-title">Cultura & storytelling</div>
+              <div class="why-title">Cultura & identità</div>
               <div class="why-text">
-                Approfondimenti storici, artistici e ambientali integrati lungo
-                i percorsi.
+                Approfondimenti storici, architettonici e naturalistici lungo i percorsi.
               </div>
             </div>
 
@@ -972,9 +995,10 @@
               <div class="why-emoji">🕰</div>
               <div class="why-title">Flessibilità di durata</div>
               <div class="why-text">
-                Ogni pacchetto è disponibile in versione 3 o 4 giorni.
+                Entrambi i pacchetti sono disponibili in versione 3 o 4 giorni.
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -982,54 +1006,69 @@
       <!-- PACCHETTI -->
       <section id="pacchetti">
         <div class="container">
-          <div class="section-header reveal" style="margin-bottom:1.9rem;">
+          <div class="section-header reveal">
             <div class="section-eyebrow">I pacchetti</div>
             <h2 class="section-title">Scegli l’esperienza che ti somiglia</h2>
             <p class="section-desc">
-              Due concept diversi, entrambi costruiti intorno a natura,
-              lentezza e scoperta del territorio.
+              Due concept diversi, un unico obiettivo: accompagnarti alla scoperta del territorio.
             </p>
           </div>
 
           <div class="packages-layout">
+
             <div class="packages-main">
-              <!-- PACCHETTO 1 -->
+
+              <!-- Hidden Cavallino -->
               <article class="package-card reveal">
                 <div class="package-tag">Pacchetto 1</div>
-                <h3 class="package-title">Hidden Cavallino – Discovery Experience</h3>
+                <h3 class="package-title">Hidden Cavallino – Experience Quest</h3>
+
                 <p class="package-subtitle">
-                  Una “caccia alla scoperta”, non al tesoro: un percorso
-                  esplorativo tra natura, storia e leggende locali.
+                  Una caccia al tesoro esperienziale tra natura, laguna e cultura: QR code nascosti, storie,
+                  fiabe e tappe guidate per vivere Cavallino-Treporti in modo attivo e coinvolgente.
                 </p>
 
-                <div class="package-list-title">Cosa include</div>
+                <div class="package-list-title">Come funziona</div>
                 <ul class="package-list">
-                  <li>Fino a 12 tappe tra laguna, faro e pinete.</li>
-                  <li>Mini-fiabe e leggende per bambini.</li>
-                  <li>Approfondimenti per adulti.</li>
-                  <li>Mappa digitale + kit di benvenuto.</li>
-                  <li>Badge digitale finale “Explorer”.</li>
+                  <li>Mappa ufficiale con punti QR e itinerario consigliato.</li>
+                  <li>Contenuti sbloccabili: schede culturali, curiosità, fiabe per bambini.</li>
+                  <li>Possibilità di prenotare attività incluse (natura, cultura, sport, sapori).</li>
+                  <li>Premiazione finale con aperitivo e consegna gadget.</li>
                 </ul>
+
+                <p class="package-subsection"><em>Disponibile in bassa stagione (ottobre–novembre).</em></p>
 
                 <div class="package-list-title">Opzioni disponibili</div>
                 <div class="options-grid">
+
                   <div class="option-card">
-                    <div class="option-title">3 giorni – Essenziale</div>
+                    <div class="option-title">Corporate Edition – 2 giorni / 1 notte</div>
                     <div class="option-text">
-                      Percorso completo in 2 mezze giornate + attività guidata.
+                      Pensata per team aziendali: briefing iniziale, attività guidate, orienteering,
+                      sfida a punti e premiazione finale.
                     </div>
                   </div>
+
                   <div class="option-card">
-                    <div class="option-title">4 giorni – Family Plus</div>
+                    <div class="option-title">Family Edition – fino a 4 giorni / 3 notti</div>
                     <div class="option-text">
-                      Come la formula 3 giorni + laboratorio bambini e degustazione.
+                      Il format più completo per famiglie: fiabe nelle tappe, percorsi natura-cultura-sport,
+                      attività dedicate ai bambini e finale con premi.
                     </div>
                   </div>
+
                 </div>
+
+                <div class="package-list-title">Dettagli chiave</div>
+                <ul class="package-list">
+                  <li>Tema: esplorazione, gioco, narrazione.</li>
+                  <li>Target: famiglie, aziende, coppie, gruppi, over 50.</li>
+                  <li>Periodo consigliato: ottobre–novembre.</li>
+                </ul>
 
                 <div class="package-footer">
                   <div class="package-note">
-                    Ideale per famiglie e curiosi.
+                    Vivi Cavallino-Treporti come una vera avventura: esplora, scopri e sblocca premi.
                   </div>
                   <button class="btn btn-primary"
                     onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
@@ -1038,40 +1077,58 @@
                 </div>
               </article>
 
-              <!-- PACCHETTO 2 -->
+              <!-- Lagoon Slow -->
               <article class="package-card reveal">
                 <div class="package-tag">Pacchetto 2</div>
-                <h3 class="package-title">Lagoon Slow – Weekend Natura & Cultura</h3>
+                <h3 class="package-title">Lagoon Slow – 5 giorni tra Natura & Cultura</h3>
+
                 <p class="package-subtitle">
-                  Un’esperienza slow tra natura, tradizioni e laguna.
+                  Un percorso slow pensato per scoprire la laguna con ritmi distesi: natura, cultura,
+                  gastronomia e panorami che cambiano durante la giornata.
                 </p>
 
                 <div class="package-list-title">Cosa include</div>
                 <ul class="package-list">
-                  <li>Passeggiata guidata tra dune e pinete.</li>
-                  <li>Tour in barca slow.</li>
-                  <li>Visita culturale.</li>
-                  <li>Possibilità attività benessere.</li>
+                  <li>Pernottamento in strutture aderenti (campeggi o hotel).</li>
+                  <li>Programma completo di 5 giorni: natura, storia, sapori e panorami.</li>
+                  <li>Due varianti: <strong>Active Experience</strong> e <strong>Relax & Discovery</strong>.</li>
+                  <li>Escursioni tra dune, pinete, borghi e aree lagunari.</li>
+                  <li>Visite culturali: Museo Pisani, Via dei Forti, punti panoramici.</li>
+                  <li>Attività slow: tour al tramonto, percorsi benessere e gastronomici.</li>
                 </ul>
 
+                <div class="package-list-title">Pacchetti disponibili</div>
                 <div class="options-grid">
+
                   <div class="option-card">
-                    <div class="option-title">3 giorni – Nature Weekend</div>
+                    <div class="option-title">Pacchetto A – Active Experience</div>
                     <div class="option-text">
-                      Passeggiata guidata + mini-crociera + visita culturale.
+                      E-bike tour, birdwatching, raccolta ortaggi, cooking experience, visita a Lio Piccolo
+                      e History Ride: il territorio vissuto attivamente.
                     </div>
                   </div>
+
                   <div class="option-card">
-                    <div class="option-title">4 giorni – Signature Experience</div>
+                    <div class="option-title">Pacchetto B – Relax & Discovery</div>
                     <div class="option-text">
-                      Tutto + laboratorio artigianale e aperitivo al tramonto.
+                      Passeggiate lente tra borghi e pinete, giornate benessere, escursioni in laguna,
+                      Venezia slow e degustazioni tipiche.
                     </div>
                   </div>
+
                 </div>
+
+                <div class="package-list-title">Dettagli chiave</div>
+                <ul class="package-list">
+                  <li>Tema: natura, cultura, benessere.</li>
+                  <li>Target: over 50 e amanti del turismo lento.</li>
+                  <li>Durata: 5 giorni e 4 notti.</li>
+                  <li>Periodo consigliato: marzo, aprile, maggio.</li>
+                </ul>
 
                 <div class="package-footer">
                   <div class="package-note">
-                    Ritmi lenti, panorami e natura.
+                    La laguna in primavera: silenzio, colori e natura che rinasce.
                   </div>
                   <button class="btn btn-primary"
                     onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
@@ -1079,22 +1136,26 @@
                   </button>
                 </div>
               </article>
+
             </div>
 
             <!-- ASIDE -->
             <aside class="packages-aside reveal">
               <div class="packages-pill">Format ufficiale Cavallino-Treporti</div>
+
               <h4 class="packages-aside-title">Valorizza il territorio</h4>
               <p class="packages-aside-text">
-                I pacchetti nascono per accompagnare l’ospite alla scoperta
-                del territorio con esperienze autentiche e curate.
+                I pacchetti sono realizzati in collaborazione con operatori locali
+                per offrire esperienze autentiche e sostenibili.
               </p>
+
               <ul class="packages-aside-list">
-                <li>Adatti a famiglie, coppie e gruppi.</li>
+                <li>Adatti a famiglie, coppie e piccoli gruppi.</li>
                 <li>Attivi in primavera e autunno.</li>
-                <li>Collaborano con operatori locali.</li>
+                <li>Collaborazione con guide e realtà territoriali.</li>
                 <li>Personalizzabili su richiesta.</li>
               </ul>
+
               <button class="btn btn-outline" style="width:100%;"
                 onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
                 Richiedi disponibilità
@@ -1105,23 +1166,23 @@
       </section>
 
       <!-- PRENOTAZIONE -->
-      <section id="prenota" class="booking">
+      <section id="prenota">
         <div class="container">
           <div class="section-header reveal">
             <div class="section-eyebrow">Prenotazione</div>
             <h2 class="section-title">Prenota ora la tua esperienza</h2>
             <p class="section-desc">
-              Compila il form: ti risponderemo con disponibilità e dettagli.
+              Compila il modulo: il Consorzio ti ricontatterà con disponibilità, preventivo
+              personalizzato e dettagli del pacchetto.
             </p>
           </div>
 
           <div class="booking-inner reveal">
-            <p class="booking-intro">
-              I campi con * sono obbligatori. Specifica eventuali preferenze.
-            </p>
+            <p class="booking-intro">I campi con * sono obbligatori.</p>
 
             <form action="#" method="post">
               <div class="booking-grid">
+
                 <div class="form-field">
                   <label for="nome">Nome e cognome *</label>
                   <input type="text" id="nome" name="nome" required>
@@ -1141,10 +1202,24 @@
                   <label for="pacchetto">Seleziona pacchetto *</label>
                   <select id="pacchetto" name="pacchetto" required>
                     <option value="">— seleziona —</option>
-                    <option value="hidden-3">Hidden Cavallino – 3 giorni</option>
-                    <option value="hidden-4">Hidden Cavallino – 4 giorni</option>
-                    <option value="lagoon-3">Lagoon Slow – 3 giorni</option>
-                    <option value="lagoon-4">Lagoon Slow – 4 giorni</option>
+
+                    <!-- Hidden Cavallino -->
+                    <option value="hidden-corporate">
+                      Hidden Cavallino – Corporate Edition (2 giorni / 1 notte)
+                    </option>
+
+                    <option value="hidden-family">
+                      Hidden Cavallino – Family Edition (fino a 4 giorni / 3 notti)
+                    </option>
+
+                    <!-- Lagoon Slow -->
+                    <option value="lagoon-active">
+                      Lagoon Slow – Active Experience (5 giorni / 4 notti)
+                    </option>
+
+                    <option value="lagoon-relax">
+                      Lagoon Slow – Relax & Discovery (5 giorni / 4 notti)
+                    </option>
                   </select>
                 </div>
 
@@ -1155,24 +1230,19 @@
 
                 <div class="form-field">
                   <label for="date">Periodo preferito</label>
-                  <input type="text" id="date" name="date"
-                    placeholder="Es. weekend di maggio, settembre, ecc.">
+                  <input type="text" id="date" name="date" placeholder="Es. ottobre, novembre, marzo, weekend…">
                 </div>
 
                 <div class="form-field" style="grid-column:1/-1;">
                   <label for="messaggio">Dettagli / richieste</label>
                   <textarea id="messaggio" name="messaggio"
-                    placeholder="Es. presenza bambini, preferenze, ecc."></textarea>
+                    placeholder="Es. presenza bambini, esigenze alimentari, preferenze attività…"></textarea>
                 </div>
               </div>
 
               <div class="booking-footer">
-                <button type="submit" class="btn btn-primary">
-                  Invia richiesta
-                </button>
-                <p class="booking-note">
-                  Nessun pagamento ora: verrai ricontattato con i dettagli.
-                </p>
+                <button type="submit" class="btn btn-primary">Invia richiesta</button>
+                <p class="booking-note">Nessun pagamento ora. Riceverai una risposta entro 48h.</p>
               </div>
             </form>
           </div>
@@ -1185,32 +1255,30 @@
           <div class="section-header reveal">
             <div class="section-eyebrow">Domande frequenti</div>
             <h2 class="section-title">FAQ</h2>
-            <p class="section-desc">
-              Le risposte alle domande più comuni dei visitatori.
-            </p>
+            <p class="section-desc">Risposte utili per organizzare il tuo soggiorno.</p>
           </div>
 
           <div class="faq-grid">
+
             <div class="faq-item reveal">
               <div class="faq-q">I pacchetti sono adatti ai bambini?</div>
               <div class="faq-a">
-                Certo! Hidden Cavallino è perfetto per famiglie; Lagoon Slow è adatto a
-                bambini abituati a camminare e stare nella natura.
+                Certo! Hidden Cavallino è pensato anche per i più piccoli; Lagoon Slow richiede
+                maggiore attitudine alla camminata.
               </div>
             </div>
 
             <div class="faq-item reveal">
               <div class="faq-q">Come funziona la prenotazione?</div>
               <div class="faq-a">
-                Ricevi una mail con disponibilità, programma, costi e modalità di conferma.
+                Riceverai una mail con disponibilità, programma, costi e modalità di conferma.
               </div>
             </div>
 
             <div class="faq-item reveal">
               <div class="faq-q">E in caso di maltempo?</div>
               <div class="faq-a">
-                Alcune attività possono essere modificate o riprogrammate insieme
-                in base al periodo.
+                Alcune attività possono essere modificate o riprogrammate in base al periodo.
               </div>
             </div>
 
@@ -1220,19 +1288,18 @@
                 No, solo abbigliamento comodo e scarpe adatte a camminare.
               </div>
             </div>
+
           </div>
         </div>
       </section>
+
     </main>
 
     <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-inner">
-          <div>
-            © 2025 Cavallino-Treporti Experience ·
-            <span>In collaborazione con il Consorzio Cavallino-Treporti</span>
-          </div>
+          <div>© 2025 Cavallino-Treporti Experience · In collaborazione con il Consorzio Cavallino-Treporti</div>
           <div class="footer-links">
             <a href="#pacchetti">Pacchetti</a>
             <a href="#prenota">Prenotazione</a>
@@ -1242,30 +1309,29 @@
         </div>
       </div>
     </footer>
+
+
+
   </div>
 
-  <!-- JS per animazioni on-scroll -->
+  <!-- JS -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const reveals = document.querySelectorAll(".reveal");
 
       if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                obs.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.18 }
-        );
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18 });
 
-        reveals.forEach((el) => observer.observe(el));
+        reveals.forEach(el => observer.observe(el));
       } else {
-        // fallback
-        reveals.forEach((el) => el.classList.add("visible"));
+        reveals.forEach(el => el.classList.add("visible"));
       }
     });
   </script>

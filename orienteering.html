@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orienteering – Cavallino-Treporti Experience</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <style>
+    :root {
+      --primary: #008037;
+      --accent: #F58220;
+      --bg: #f5f7f5;
+      --white: #ffffff;
+      --text: #111;
+      --text-soft: #6b7280;
+      --border: #e5e7eb;
+      --radius: 22px;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* HEADER */
+    header {
+      background: #ffffffd9;
+      backdrop-filter: blur(15px);
+      padding: 0.9rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    header .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    header img {
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    .back-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #006c2f;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.6rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .box h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    #map {
+      width: 100%;
+      height: 500px;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="area.html" class="logo-area">
+    <img src="logo.png" alt="Logo">
+    <span>Cavallino-Treporti Experience</span>
+  </a>
+
+  <a href="area.html" class="back-btn">← Torna all’Area Personale</a>
+</header>
+
+<div class="content">
+
+  <h1>Orienteering Libero</h1>
+  <div class="subtitle">Esplora, trova i QR nascosti e sblocca contenuti speciali.</div>
+
+  <!-- DESCRIZIONE -->
+  <div class="box">
+    <h2>Cos'è l’Orienteering?</h2>
+    <p>
+      Un percorso di esplorazione libera tra natura, cultura e scorci nascosti di Cavallino-Treporti.
+      Ogni punto contiene un QR code da scansionare per sbloccare storie, fiabe e curiosità del territorio.
+    </p>
+  </div>
+
+  <!-- MAPPA -->
+  <div class="box">
+    <h2>Mappa dell’Orienteering</h2>
+    <p>Segui i punti sulla mappa per raggiungere le tappe nascoste.</p>
+    <div id="map"></div>
+  </div>
+
+</div>
+
+<!-- LEAFLET JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+var map = L.map('map').setView([45.463, 12.485], 12);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+}).addTo(map);
+
+/* ICONA EMOJI 📍 */
+const pin = L.icon({
+    iconUrl: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4cd.png",
+    iconSize: [38, 38],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -36]
+});
+
+/* LISTA PUNTI */
+const points = [
+    { name: "Forte Cavallino", coords: [45.49194, 12.57083] },
+    { name: "Cippo di conterminazione n°50", coords: [45.49220, 12.57680] },
+    { name: "Punto panoramico laguna", coords: [45.48608, 12.55330] },
+    { name: "Punto tramonto biketrack", coords: [45.48106, 12.53144] },
+    { name: "Selfie Point", coords: [45.47256, 12.50168] },
+    { name: "Batteria Amalfi", coords: [45.44656, 12.44518] },
+    { name: "Attracco Galeone", coords: [45.45994, 12.44218] },
+    { name: "Punto Panorama Laguna", coords: [45.46131, 12.44056] },
+    { name: "Punto GPS 1", coords: [45.4430, 12.4545] },
+    { name: "Punto GPS 2", coords: [45.4367, 12.4481] },
+    { name: "Forte Treporti", coords: [45.45556, 12.43831] },
+    { name: "Faro di Cavallino", coords: [45.47856, 12.58319] },
+    { name: "Convento delle Mesole", coords: [45.47981, 12.49594] },
+    { name: "Laguna Veneta – Cavallino", coords: [45.48556, 12.49169] },
+    { name: "Chiesa SS. Trinità", coords: [45.46569, 12.45669] },
+    { name: "Casa Rossa Lio Piccolo", coords: [45.49331, 12.48531] },
+    { name: "Palazzo Boldù", coords: [45.49056, 12.48981] },
+    { name: "Faro Punta Sabbioni", coords: [45.42269, 12.43669] }
+];
+
+/* MARKER + LINK GOOGLE MAPS */
+points.forEach(p => {
+  const lat = p.coords[0];
+  const lng = p.coords[1];
+  const googleLink = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+
+  L.marker(p.coords, { icon: pin })
+    .addTo(map)
+    .bindPopup(`
+      <strong>${p.name}</strong><br>
+      <a href="${googleLink}" target="_blank" style="color:#008037; font-weight:600;">
+        📍 Apri in Google Maps
+      </a>
+    `);
+});
+
+</script>
+
+</body>
+</html>

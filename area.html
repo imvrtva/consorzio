@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area personale – Cavallino-Treporti Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #008037;
+      --primary-soft: #e4f3e9;
+      --accent: #F58220;
+      --accent-soft: #fff3e6;
+      --bg: #f3f6f3;
+      --bg-alt: #ffffff;
+      --white: #ffffff;
+      --text: #111827;
+      --text-soft: #6b7280;
+      --border: #d9e2d8;
+      --radius: 22px;
+      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #e6f2ea 0, #f6faf7 40%, #f3f6f3 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --------------------------------------
+       HEADER
+    -------------------------------------- */
+    header {
+      background: #ffffffd9;
+      backdrop-filter: blur(20px);
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1f2933;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .logo-sub {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-soft);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .icon-btn {
+      padding: 0.55rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.2s;
+      color: #4b5563;
+      background: transparent;
+    }
+
+    .icon-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .icon-btn:hover {
+      border-color: rgba(0,128,55,0.25);
+      background: rgba(0,128,55,0.06);
+      color: var(--primary);
+    }
+
+    /* --------------------------------------
+       LAYOUT
+    -------------------------------------- */
+    .wrapper {
+      max-width: 1240px;
+      margin: 2.6rem auto 3.2rem;
+      padding: 0 1.8rem;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .page-title {
+      grid-column: 1 / -1;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-title h1 {
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .page-title h1 span {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .page-title p {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    /* --------------------------------------
+       SIDEBAR
+    -------------------------------------- */
+    .sidebar {
+      background: var(--bg-alt);
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 84px;
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 0.94rem;
+      transition: 0.2s;
+      color: var(--text);
+    }
+
+    .menu-item svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .menu-item:hover {
+      background: rgba(0,128,55,0.06);
+      color: var(--primary);
+    }
+
+    .menu-item:hover svg {
+      color: var(--primary);
+    }
+
+    .menu-item.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0,128,55,0.35);
+    }
+
+    .menu-item.active svg {
+      color: #ffffff;
+      opacity: 1;
+    }
+
+    /* --------------------------------------
+       PANELS
+    -------------------------------------- */
+    .panel {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 2.1rem 2rem;
+      box-shadow: var(--shadow-soft);
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 1.3rem;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .panel-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    /* --------------------------------------
+       DASHBOARD – QR + RIASSUNTO PACCHETTO
+    -------------------------------------- */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .qr-card {
+      background: linear-gradient(135deg, #e4f3ea, #f7fbf8);
+      border: 1px solid rgba(0,128,55,0.2);
+      padding: 1.7rem 1.6rem;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qr-card::after {
+      content: "";
+      position: absolute;
+      right: -50px;
+      bottom: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,128,55,0.18), transparent 65%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .qr-card-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #047857;
+      margin-bottom: 0.3rem;
+    }
+
+    .qr-card strong {
+      font-size: 1.9rem;
+      display: block;
+      margin: 0.2rem 0 0.3rem;
+      font-weight: 600;
+    }
+
+    .qr-card small {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .progress-bar {
+      margin-top: 1.1rem;
+      width: 100%;
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 7%; /* 1 su 15 QR (esempio) */
+      transition: width 0.4s ease;
+    }
+
+    .progress-label {
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .package-summary-card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .package-summary-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .package-summary-main {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .package-summary-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.78rem;
+      color: #046c4e;
+      margin-bottom: 0.6rem;
+    }
+
+    .package-summary-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin: 0;
+      padding: 0;
+    }
+
+    .package-summary-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .panel-footer-text {
+      color: var(--text-soft);
+      margin-top: 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    /* --------------------------------------
+       QR LIST PANEL
+    -------------------------------------- */
+    #panel-qr {
+      padding-bottom: 1.8rem;
+    }
+
+    #qrList {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .qr-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px dashed #e0e7df;
+    }
+
+    .qr-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--primary);
+      margin-top: 0.3rem;
+      box-shadow: 0 0 0 4px rgba(0,128,55,0.12);
+      flex-shrink: 0;
+    }
+
+    .qr-meta {
+      font-size: 0.9rem;
+    }
+
+    .qr-meta-title {
+      font-weight: 500;
+    }
+
+    .qr-meta-sub {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-top: 0.1rem;
+    }
+
+    .qr-meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.76rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #046c4e;
+      margin-top: 0.35rem;
+    }
+
+    /* --------------------------------------
+       BUTTONS
+    -------------------------------------- */
+    .btn {
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(0,128,55,0.35);
+    }
+
+    .btn-primary:hover {
+      background: #006c2f;
+      box-shadow: 0 14px 36px rgba(0,128,55,0.45);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* --------------------------------------
+       CARD QR SCOPERTO (NEL PANNELLO QR)
+    -------------------------------------- */
+    .qr-find-card {
+      margin-top: 1.2rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.04);
+      transition: 0.25s;
+    }
+
+    .qr-find-card:hover {
+      border-color: rgba(0,128,55,0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0,128,55,0.15);
+    }
+
+    .qr-find-text h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .qr-find-text h3 span {
+      font-size: 1.2rem;
+    }
+
+    .qr-find-text p {
+      margin: 0.45rem 0 0;
+      color: var(--text-soft);
+      max-width: 360px;
+      line-height: 1.45;
+      font-size: 0.93rem;
+    }
+
+    .qr-find-image img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 26px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    /* --------------------------------------
+       ESPERIENZE – INCLUSE vs EXTRA
+    -------------------------------------- */
+    .experience-info {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .experience-info strong {
+      color: var(--text);
+    }
+
+    .experience-section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .experience-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: 0.2s;
+    }
+
+    .experience-main {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .exp-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f0f7f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 1px solid #d9e8dd;
+    }
+
+    .experience-text h4 {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .experience-text p {
+      margin: 0.2rem 0 0;
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .experience-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.16rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin-top: 0.25rem;
+    }
+
+    .experience-tag.inclusa {
+      background: var(--primary-soft);
+      color: #046c4e;
+    }
+
+    .experience-tag.extra {
+      background: var(--accent-soft);
+      color: #b45309;
+    }
+
+    .experience-card:hover {
+      border-color: rgba(0,128,55,0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,128,55,0.18);
+    }
+
+    .experience-note {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-top: 1rem;
+    }
+
+    /* --------------------------------------
+       BADGE – GAMIFICATI
+    -------------------------------------- */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+      gap: 1.3rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      text-align: center;
+      padding: 1.3rem 1rem 1.2rem;
+      background: radial-gradient(circle at top, #fff7eb 0, #ffffff 42%, #f3f5f3 100%);
+      border-radius: 24px;
+      border: 1px solid #f4dcc0;
+      box-shadow: 0 14px 34px rgba(148, 81, 16, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0, rgba(255,255,255,0.7), transparent 55%);
+      pointer-events: none;
+    }
+
+    .badge-medal {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 0.5rem;
+      border-radius: 999px;
+      background: conic-gradient(from 220deg, #fbbf77, #f97316, #fed7aa, #fbbf24, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(180,83,9,0.45);
+      position: relative;
+    }
+
+    .badge-medal-inner {
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fffaf4 0, #fde8cf 45%, #fbbf77 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .badge-title {
+      font-weight: 600;
+      font-size: 0.96rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .badge-level {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #b45309;
+    }
+
+    .badge-desc {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.35rem;
+    }
+
+    /* --------------------------------------
+       PROFILO
+    -------------------------------------- */
+    .profile-row {
+      margin-bottom: 0.5rem;
+      font-size: 0.93rem;
+    }
+
+    .profile-row strong {
+      font-weight: 500;
+    }
+
+    /* --------------------------------------
+       RESPONSIVE
+    -------------------------------------- */
+    @media (max-width: 900px) {
+      .wrapper {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .sidebar {
+        position: static;
+        order: 2;
+      }
+
+      .panel {
+        order: 3;
+      }
+
+      .page-title {
+        order: 1;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 0.7rem 1.1rem;
+      }
+
+      .wrapper {
+        padding: 0 1.1rem;
+      }
+
+      .panel {
+        padding: 1.6rem 1.4rem;
+      }
+
+      .qr-find-card {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+
+      .qr-find-image img {
+        width: 100%;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo Cavallino-Treporti">
+      <div>
+        Cavallino-Treporti Experience
+        <div class="logo-sub">Area personale – Hidden Cavallino Family</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- Torna al sito -->
+      <a href="index.html" class="icon-btn" title="Torna al sito">
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+          <path d="M3 12l2-2m0 0 7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11 2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0h6"/>
+        </svg>
+      </a>
+
+      <!-- Logout -->
+      <button class="icon-btn" title="Esci">
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <path d="M16 17l5-5-5-5"/>
+          <path d="M21 12H9"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- TITOLO PAGINA -->
+    <div class="page-title">
+      <h1>Ciao, <span id="nomeUtente">Famiglia Rossi</span> 👋</h1>
+      <p>
+        Stai vivendo il pacchetto <strong>“Hidden Cavallino – Family Edition”</strong>:
+        qui trovi QR code, esperienze incluse, extra a pagamento e dettagli del tuo soggiorno.
+      </p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Menu</div>
+      <nav class="menu">
+        <div class="menu-item active" data-panel="dashboard">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z"/></svg>
+          Dashboard
+        </div>
+
+        <div class="menu-item" data-panel="qr">
+          <svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zm0 7h4v4h-4v-4zm-10 4h8v8H3v-8zm10 4h8v4h-8v-4z"/></svg>
+          QR Code
+        </div>
+
+        <div class="menu-item" data-panel="esperienze">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          Esperienze
+        </div>
+
+        <div class="menu-item" data-panel="badge">
+          <svg viewBox="0 0 24 24"><path d="M12 17l-5.5 3 1-6-4.5-4 6-.5L12 3l2.5 6 6 .5-4.5 4 1 6z"/></svg>
+          Badge & premi
+        </div>
+
+        <div class="menu-item" data-panel="profilo">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          Profilo
+        </div>
+      </nav>
+    </aside>
+
+    <!-- DASHBOARD -->
+    <section class="panel active" id="panel-dashboard">
+      <h2>Il tuo riepilogo</h2>
+      <p class="panel-subtitle">
+        Controlla a colpo d’occhio i QR code trovati e i dettagli del tuo pacchetto famiglia.
+      </p>
+
+      <div class="dashboard-grid">
+        <!-- QR PROGRESS -->
+        <div class="qr-card">
+          <div class="qr-card-label">Progressi esperienza</div>
+          Hai trovato finora:
+          <strong id="qrCount">1 QR code</strong>
+          <small>Completa le tappe per raggiungere il livello Argento (8 QR) e Oro (15 QR).</small>
+
+          <div class="progress-bar">
+            <div class="progress-fill" id="qrProgress"></div>
+          </div>
+          <div class="progress-label">
+            Obiettivo successivo: <strong>8 QR code</strong> per il badge “Lagunare”.
+          </div>
+        </div>
+
+        <!-- RIASSUNTO PACCHETTO FAMIGLIA -->
+        <div class="package-summary-card">
+          <div class="package-summary-title">Il tuo pacchetto</div>
+          <div class="package-summary-main">Hidden Cavallino – Family Edition</div>
+          <div class="package-summary-chip">👨‍👩‍👧‍👦 Famiglia ospite · 3 notti</div>
+
+          <ul class="package-summary-list">
+            <li><strong>Soggiorno:</strong> 3 notti (4 giorni) in struttura aderente.</li>
+            <li><strong>Composizione famiglia:</strong> 2 adulti · 2 bambini (3–12 anni).</li>
+            <li><strong>Esperienze incluse:</strong> fino a <strong>5 attività guidate</strong>.</li>
+            <li><strong>Altre esperienze:</strong> prenotabili come <em>extra a pagamento</em>.</li>
+            <li><strong>Premi finali:</strong> gadget + sconti in locali partner in base ai QR trovati.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="panel-footer-text">
+        Continua l’esplorazione: più QR code trovi, più premi sblocchi per la tua famiglia.
+      </p>
+    </section>
+
+    <!-- PANEL QR LIST -->
+    <section class="panel" id="panel-qr">
+      <h2>I tuoi QR code</h2>
+      <p class="panel-subtitle">
+        Qui trovi l’elenco delle tappe già raggiunte. Ogni QR corrisponde a un luogo, una storia e un contenuto speciale.
+      </p>
+
+      <!-- Primo QR: Faro Pagoda -->
+      <div class="qr-find-card">
+        <div class="qr-find-text">
+          <h3><span>📍</span> Faro Pagoda di Punta Sabbioni</h3>
+          <p>
+            Hai sbloccato la storia del faro e la fiaba della sirena Lumina.
+            Puoi rileggerle in qualsiasi momento dalla tua area personale.
+          </p>
+
+          <a href="qr-faro.html" class="btn btn-primary" style="margin-top:0.7rem;">
+            Apri contenuto
+          </a>
+        </div>
+
+        <div class="qr-find-image">
+          <img src="punta.jpg" alt="Faro Pagoda di Punta Sabbioni">
+        </div>
+      </div>
+
+      <!-- ELENCO QR (se vorrai popolarlo via JS in futuro) -->
+      <ul id="qrList"></ul>
+    </section>
+
+    <!-- ESPERIENZE -->
+<section class="panel" id="panel-esperienze">
+  <h2>Esperienze prenotabili</h2>
+  <p class="panel-subtitle">
+    Il tuo pacchetto famiglia include diverse esperienze guidate tra natura, cultura, sport e sapori.
+    Le attività aggiuntive sono prenotabili come extra a pagamento.
+  </p>
+
+  <div class="experience-info">
+    Nel tuo pacchetto <strong>sono incluse tutte le esperienze principali</strong>:
+    Sapori, Cultura, Natura, Sport e Cerimonia finale.<br>
+    <strong>L’orienteering</strong> è sempre disponibile come attività libera.
+  </div>
+
+  <!-- Esperienze INCLUSE -->
+  <div class="experience-section-title">Esperienze incluse nel tuo pacchetto famiglia</div>
+  <div class="experience-list">
+
+    <!-- SAPORI -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🍽️</div>
+        <div class="experience-text">
+          <h4>Pranzo “Sapori del Territorio”</h4>
+          <p>
+            Menù tipico in uno dei ristoranti partner (Vanin / Locanda Zanella).
+            Sono previsti menù dedicati ai bambini.
+          </p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- SPORT 1 -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">⛵️</div>
+        <div class="experience-text">
+          <h4>Sport: a Remi in Laguna</h4>
+          <p>Uscita in barca a remi o kayak. Percorso sicuro e adatto alle famiglie con bambini.</p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- SPORT 2 bambini -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🧒</div>
+        <div class="experience-text">
+          <h4>Avventure a Misura di Bambino</h4>
+          <p>
+            Piccole attività esplorative e giochi-ricerca pensati per i più piccoli, in aree sicure.
+          </p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- CULTURA 1 -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🏛️</div>
+        <div class="experience-text">
+          <h4>Batteria Vettor Pisani – Museo della Grande Guerra</h4>
+          <p>Visita guidata tra fortificazioni, storia locale e paesaggio lagunare.</p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- CULTURA 2 -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">📚</div>
+        <div class="experience-text">
+          <h4>Racconti di Mistero</h4>
+          <p>
+            Storie, leggende e misteri della laguna narrati in una cornice suggestiva.
+          </p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- NATURA 1 -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🐦</div>
+        <div class="experience-text">
+          <h4>Birdwatching in Laguna</h4>
+          <p>Osservazione guidata di fenicotteri, aironi e specie tipiche delle zone umide.</p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- NATURA 2 -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🌿</div>
+        <div class="experience-text">
+          <h4>Natura & Flora: Scopri la Laguna</h4>
+          <p>Esplorazione guidata tra flora, fauna e paesaggi nascosti del territorio.</p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Prenota</button>
+    </div>
+
+    <!-- ORIENTEERING -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🗺️</div>
+        <div class="experience-text">
+          <h4>Orienteering Libero</h4>
+          <p>
+            Esplorazione autonoma del territorio alla ricerca dei QR code nascosti.
+            Accessibile tutti i giorni.
+          </p>
+          <div class="experience-tag inclusa">Attività sempre disponibile</div>
+        </div>
+      </div>
+      <a href="orienteering.html" class="btn btn-primary">Info</a>
+    </div>
+
+    <!-- CERIMONIA FINALE -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🎉</div>
+        <div class="experience-text">
+          <h4>Cerimonia Finale + Aperitivo & Premi</h4>
+          <p>Buffet conclusivo, conteggio QR code, consegna gadget e premi.</p>
+          <div class="experience-tag inclusa">Inclusa nel pacchetto</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Riserva il tuo posto</button>
+    </div>
+  </div>
+
+  <!-- Esperienze EXTRA -->
+  <div class="experience-section-title">Esperienze extra a pagamento</div>
+  <div class="experience-list">
+
+    <!-- Extra E-Bike -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🚲</div>
+        <div class="experience-text">
+          <h4>E-Bike Experience a Lio Piccolo</h4>
+          <p>
+            Tour in e-bike tra strade bianche, valli e panorami lagunari. Ideale per mezza giornata.
+          </p>
+          <div class="experience-tag extra">Extra a pagamento</div>
+        </div>
+      </div>
+      <button class="btn btn-outline">Aggiungi come extra</button>
+    </div>
+
+    <!-- Extra Cooking -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">👩‍🍳</div>
+        <div class="experience-text">
+          <h4>Cooking Experience Km 0</h4>
+          <p>
+            Raccolta ortaggi, laboratorio di cucina e degustazione finale. Perfetto anche con i bambini.
+          </p>
+          <div class="experience-tag extra">Extra a pagamento</div>
+        </div>
+      </div>
+      <button class="btn btn-outline">Aggiungi come extra</button>
+    </div>
+
+    <!-- Extra Degustazione -->
+    <div class="experience-card">
+      <div class="experience-main">
+        <div class="exp-icon">🍷</div>
+        <div class="experience-text">
+          <h4>Degustazione Vini o Birre Artigianali</h4>
+          <p>
+            Percorso di degustazione in cantina o birrificio con prodotti del territorio.
+          </p>
+          <div class="experience-tag extra">Extra a pagamento</div>
+        </div>
+      </div>
+      <button class="btn btn-outline">Aggiungi come extra</button>
+    </div>
+  </div>
+
+  <p class="experience-note">
+    Le esperienze extra vengono confermate dal Consorzio e saldate in struttura o presso l’operatore locale.
+  </p>
+</section>
+
+    <!-- BADGE -->
+    <section class="panel" id="panel-badge">
+      <h2>Badge & premi</h2>
+      <p class="panel-subtitle">
+        Ogni traguardo raggiunto sblocca un livello. Colleziona badge e scopri i premi dedicati alla tua famiglia.
+      </p>
+
+      <div class="badge-grid">
+        <div class="badge">
+          <div class="badge-medal">
+            <div class="badge-medal-inner">⭐</div>
+          </div>
+          <div class="badge-title">Esploratore Base</div>
+          <div class="badge-level">Livello 1</div>
+          <div class="badge-desc">
+            Ottieni questo badge trovando almeno <strong>2 QR code</strong> nelle tappe principali.
+          </div>
+        </div>
+
+        <div class="badge">
+          <div class="badge-medal">
+            <div class="badge-medal-inner">🌊</div>
+          </div>
+          <div class="badge-title">Lagunare</div>
+          <div class="badge-level">Livello 2</div>
+          <div class="badge-desc">
+            Raggiungi almeno <strong>8 QR code</strong> tra natura e laguna per sbloccare questo livello.
+          </div>
+        </div>
+
+        <div class="badge">
+          <div class="badge-medal">
+            <div class="badge-medal-inner">🏰</div>
+          </div>
+          <div class="badge-title">Storico</div>
+          <div class="badge-level">Livello 3</div>
+          <div class="badge-desc">
+            Completa tutte le tappe culturali legate a fortificazioni e musei per ottenere il badge oro.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFILO -->
+    <section class="panel" id="panel-profilo">
+      <h2>Il tuo profilo</h2>
+      <p class="panel-subtitle">
+        Verifica i dati principali associati alla tua esperienza e al pacchetto scelto.
+      </p>
+
+      <div class="profile-row">
+        <strong>Email:</strong> <span id="emailUtente">famiglia.rossi@email.com</span>
+      </div>
+      <div class="profile-row">
+        <strong>Pacchetto scelto:</strong> <span id="pacchettoUtente">Hidden Cavallino – Family Edition (3 notti)</span>
+      </div>
+      <div class="profile-row">
+        <strong>Partecipanti:</strong> <span>2 adulti, 2 bambini (3–12 anni)</span>
+      </div>
+      <div class="profile-row">
+        <strong>Esperienze incluse nel pacchetto:</strong> <span>fino a 5 attività guidate</span>
+      </div>
+      <div class="profile-row">
+        <strong>Esperienze extra:</strong> <span>prenotabili dall’area “Esperienze” con supplemento</span>
+      </div>
+
+      <button class="btn btn-outline" style="margin-top:1rem;">Modifica profilo</button>
+    </section>
+
+  </div>
+
+  <script>
+    // SWITCH PANNELLI
+    const menuItems = document.querySelectorAll(".menu-item");
+    const panels = document.querySelectorAll(".panel");
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", () => {
+        menuItems.forEach(m => m.classList.remove("active"));
+        item.classList.add("active");
+
+        panels.forEach(p => p.classList.remove("active"));
+        const panelId = "panel-" + item.dataset.panel;
+        document.getElementById(panelId).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

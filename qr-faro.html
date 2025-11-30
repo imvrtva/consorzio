@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faro Pagoda – Cavallino-Treporti Experience</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #008037;
+      --accent: #F58220;
+      --border: #e5e7eb;
+      --bg: #f5f7f5;
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: #111;
+    }
+
+    /* HEADER */
+    header {
+      background: #ffffffd9;
+      backdrop-filter: blur(12px);
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    header img.logo {
+      height: 42px;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+
+    .back-btn:hover { background: #ececec; }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      margin-bottom: 0.7rem;
+      font-size: 2rem;
+    }
+
+    /* LANGUAGE TABS */
+    .tabs {
+      display: flex;
+      gap: 0.6rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      background: #fff;
+      transition: 0.2s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* TEXT SECTIONS */
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    .section-box {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    h2 { margin-top: 0; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="area.html" class="back-btn">
+    ← Torna all'Area Personale
+  </a>
+  <img src="logo.png" class="logo" alt="Consorzio Cavallino-Treporti">
+</header>
+
+<!-- FOTO HERO -->
+<div class="hero" style="background-image:url('punta.jpg');"></div>
+
+<div class="content">
+
+  <h1>Faro Pagoda • Punta Sabbioni</h1>
+
+  <!-- TABS SELEZIONE LINGUA -->
+  <div class="tabs">
+    <div class="tab-btn active" data-lang="ita">🇮🇹 Italiano</div>
+    <div class="tab-btn" data-lang="eng">🇬🇧 English</div>
+    <div class="tab-btn" data-lang="deu">🇩🇪 Deutsch</div>
+  </div>
+
+  <!-- ITALIANO -->
+  <div class="lang-section active" id="ita">
+
+    <div class="section-box">
+      <h2>Il Faro Pagoda di Punta Sabbioni: Vedetta sulla Storia</h2>
+      <p>
+        All'estremo ovest del litorale, dove l'Adriatico incontra la Laguna di Venezia,
+        sorge l'imponente Faro Pagoda, un monumento dalla presenza inconfondibile e dalla
+        storia ultracentenaria. Un faro simbolo, guida e confine.
+      </p>
+
+      <p>
+        Eretto sulla diga che delimita la Bocca di Porto di Venezia-Lido, la sua costruzione si
+        protrasse dal 1882 al 1910. È subito riconoscibile per la struttura metallica cilindrica a
+        forma di pagoda, alta 26 metri, decorata da terrazze scandite da grandi riquadri bianchi e
+        neri: un design unico nel suo genere.
+      </p>
+
+      <p>
+        Sopravvissuto alla storica “Acqua Granda” del 1966, venne poi elettrificato nel 1969 e
+        automatizzato nel 1974. La sua luce, visibile fino a 15 miglia nautiche, continua a essere
+        un riferimento fondamentale per la navigazione e un’icona del territorio.
+      </p>
+
+      <p>
+        Raggiungibile facilmente in bici, è una delle mete più suggestive per ammirare il tramonto
+        sulla laguna.
+      </p>
+    </div>
+
+    <div class="section-box">
+      <h2>Fiaba • Il Faro, la Sirena e la Luce degli Scacchi</h2>
+      <p><em>(Versione estesa dedicata ai bambini, ma bellissima anche per gli adulti.)</em></p>
+
+      <p>
+        C’era una volta, proprio all'estremo della lunga spiaggia di Cavallino-Treporti, un faro
+        molto speciale...
+      </p>
+
+      <p>
+        Non era un faro normale, ma una torre altissima, elegante e decorata come una torta a piani.
+        Per questo tutti la chiamavano “Faro Pagoda”. I suoi piani erano dipinti a scacchi bianchi e
+        neri, come un vestito da festa che brillava al sole e catturava il mistero della notte.
+      </p>
+
+      <p>
+        Vicino alle pietre della diga abitava una piccola sirena dell’Adriatico: Lumina.
+        La sua coda era fatta di conchiglie scure e opache, e per questo si sentiva invisibile...
+      </p>
+
+      <p>
+        Quando il costruttore Giovanni vide la sirena piangere, ebbe un’idea: costruire un faro così
+        luminoso da ricordarle ogni notte che la sua luce interiore valeva più dei colori esterni...
+      </p>
+
+      <p>
+        Quando il faro si accese per la prima volta, il raggio toccò Lumina e le sue conchiglie
+        cambiarono colore: rosso, blu, giallo… proprio come una magia del tramonto.
+      </p>
+
+      <p>
+        Da quel giorno, ogni nave che entra nella Laguna di Venezia è guidata non solo dalla luce
+        artificiale del faro, ma anche dal sorriso della sirena Lumina.
+      </p>
+
+      <p><strong>
+        Morale: non importa se a volte ti senti “grigio” o invisibile. Ognuno ha una luce speciale
+        che può illuminare anche gli altri.
+      </strong></p>
+    </div>
+
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="eng">
+    <div class="section-box">
+      <h2>The Pagoda Lighthouse of Punta Sabbioni: A Sentinel of History</h2>
+      <p>
+        At the western end of the coastline, where the Adriatic meets the Venice Lagoon,
+        stands the Pagoda Lighthouse – a unique landmark with a long and fascinating history.
+      </p>
+      <p>
+        Built between 1882 and 1910, the lighthouse is instantly recognisable thanks to
+        its cylindrical metal structure shaped like a pagoda, and its striking black-and-white
+        patterned terraces.
+      </p>
+      <p>
+        After withstanding the 1966 Acqua Granda storm, it was electrified in 1969 and automated
+        in 1974. Its light, visible up to 15 nautical miles, remains essential for navigation.
+      </p>
+    </div>
+
+    <div class="section-box">
+      <h2>Fairy Tale • The Lighthouse, the Mermaid & the Chessboard Light</h2>
+      <p>
+        Once upon a time, at the end of the long Cavallino-Treporti shore, there stood a very special lighthouse...
+      </p>
+      <p>
+        A shy mermaid named Lumina lived beneath it, believing her grey shell-tail was dull and unworthy.
+      </p>
+      <p>
+        The builder Giovanni promised her that the lighthouse’s magical light would show her she was already shining inside.
+      </p>
+      <p>
+        When the first beam lit up the sea, her tail transformed into glowing sunset colours.
+      </p>
+    </div>
+  </div>
+
+  <!-- DEUTSCH -->
+  <div class="lang-section" id="deu">
+    <div class="section-box">
+      <h2>Der Pagoden-Leuchtturm von Punta Sabbioni</h2>
+      <p>
+        Am westlichen Ende der Küste erhebt sich der Pagoden-Leuchtturm, ein unverwechselbares
+        Bauwerk mit über hundertjähriger Geschichte.
+      </p>
+      <p>
+        Zwischen 1882 und 1910 errichtet, erkennt man ihn sofort an seiner metallischen Pagodenform
+        und seinen schwarz-weißen Terrassen.
+      </p>
+    </div>
+
+    <div class="section-box">
+      <h2>Märchen • Der Leuchtturm und die Meerjungfrau Lumina</h2>
+      <p>
+        Unter dem Leuchtturm lebte einst eine kleine Meerjungfrau mit grauen Muscheln...
+      </p>
+      <p>
+        Als das Licht des Leuchtturms sie berührte, verwandelte sich ihr Schwanz in die Farben des Sonnenuntergangs.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // SWITCH LINGUE
+  const btns = document.querySelectorAll(".tab-btn");
+  const sections = document.querySelectorAll(".lang-section");
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btns.forEach(b => b.classList.remove("active"));
+      sections.forEach(s => s.classList.remove("active"));
+
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.lang).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>

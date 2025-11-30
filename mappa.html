@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa Orienteering – Cavallino-Treporti</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Pin emoji come icona */
+    .emoji-pin {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map = L.map('map').setView([45.45, 12.47], 12);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+}).addTo(map);
+
+/* ICONA EMOJI 📍 (PNG da Twemoji) */
+const pin = L.icon({
+    iconUrl: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4cd.png",
+    iconSize: [38, 38],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -34]
+});
+
+/* ---- TUTTI I PUNTI (coordinate corrette) ---- */
+const points = [
+    { name: "Forte Cavallino", coords: [45.49194, 12.57083] },
+    { name: "Cippo di conterminazione n°50", coords: [45.49220, 12.57680] },
+    { name: "Punto panoramico laguna", coords: [45.48608, 12.55330] },
+    { name: "Punto tramonto biketrack", coords: [45.48106, 12.53144] },
+    { name: "Selfie Point", coords: [45.47256, 12.50168] },
+    { name: "Batteria Amalfi", coords: [45.44656, 12.44518] },
+    { name: "Attracco Galeone", coords: [45.45994, 12.44218] },
+    { name: "Punto Panorama Laguna", coords: [45.46131, 12.44056] },
+    { name: "Punto GPS 1", coords: [45.4430, 12.4545] },
+    { name: "Punto GPS 2", coords: [45.4367, 12.4481] },
+    { name: "Forte Treporti", coords: [45.45556, 12.43831] },
+    { name: "Faro di Cavallino", coords: [45.47856, 12.58319] },
+    { name: "Convento delle Mesole", coords: [45.47981, 12.49594] },
+    { name: "Laguna Veneta – Cavallino", coords: [45.48556, 12.49169] },
+    { name: "Chiesa SS. Trinità", coords: [45.46569, 12.45669] },
+    { name: "Casa Rossa Lio Piccolo", coords: [45.49331, 12.48531] },
+    { name: "Palazzo Boldù", coords: [45.49056, 12.48981] },
+    { name: "Faro Punta Sabbioni", coords: [45.42269, 12.43669] }
+];
+
+/* ---- AGGIUNTA MARKER ---- */
+points.forEach(p => {
+  L.marker(p.coords, { icon: pin })
+    .addTo(map)
+    .bindPopup(`<strong>${p.name}</strong><br>QR da trovare`);
+});
+
+/* ---- AGGIUNTA MARKER CON LINK GOOGLE MAPS ---- */
+points.forEach(p => {
+  const lat = p.coords[0];
+  const lng = p.coords[1];
+  const googleLink = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+
+  L.marker(p.coords, { icon: pin })
+    .addTo(map)
+    .bindPopup(`
+      <strong>${p.name}</strong><br>
+      <a href="${googleLink}" target="_blank" style="color:#008037; font-weight:600;">
+        📍 Apri in Google Maps
+      </a>
+    `);
+});
+</script>
+
+</body>
+</html>
