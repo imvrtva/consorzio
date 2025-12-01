@@ -482,6 +482,8 @@
     }
 
     .package-card {
+      display: flex;
+      flex-direction: column;
       background: #ffffff;
       padding: 1.7rem 1.8rem 1.8rem;
       border-radius: var(--radius-xl);
@@ -563,15 +565,16 @@
 
     .package-footer {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 0.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
     }
 
     .package-note {
       font-size: 0.82rem;
       color: var(--text-soft);
+      flex: 1;
     }
 
     /* Side info */
@@ -625,6 +628,28 @@
       height: 6px;
       border-radius: 999px;
       background: #bbf7d0;
+    }
+
+    .packages-row-two {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 60px;
+      align-items: stretch;
+    }
+    .packages-row-two .package-card {
+      flex: 1 1 calc(50% - 2rem);
+      display: flex;
+      flex-direction: column;
+      min-width: 300px;
+    }
+    .packages-row-two .package-footer {
+      margin-top: auto;
+    }
+    @media (max-width: 900px) {
+      .packages-row-two .package-card {
+        flex: 1 1 100%;
+      }
     }
 
     /* -----------------------------------------------------
@@ -1006,11 +1031,13 @@
       <!-- PACCHETTI -->
       <section id="pacchetti">
         <div class="container">
+
+          <!-- HEADER -->
           <div class="section-header reveal">
             <div class="section-eyebrow">I pacchetti</div>
             <h2 class="section-title">Scegli l’esperienza che ti somiglia</h2>
             <p class="section-desc">
-              Due concept diversi, un unico obiettivo: accompagnarti alla scoperta del territorio.
+              Due concept diversi, un unico obiettivo: vivere Cavallino-Treporti con occhi nuovi.
             </p>
           </div>
 
@@ -1018,83 +1045,103 @@
 
             <div class="packages-main">
 
-              <!-- Hidden Cavallino -->
-              <article class="package-card reveal">
-                <div class="package-tag">Pacchetto 1</div>
-                <h3 class="package-title">Hidden Cavallino – Experience Quest</h3>
+              <!-- HIDDEN CAVALLINO - CORPORATE + FAMILY AFFIANCATI -->
+              <div class="packages-row-two">
 
-                <p class="package-subtitle">
-                  Una caccia al tesoro esperienziale tra natura, laguna e cultura: QR code nascosti, storie,
-                  fiabe e tappe guidate per vivere Cavallino-Treporti in modo attivo e coinvolgente.
-                </p>
+                <!-- Corporate Edition -->
+                <article class="package-card reveal">
+                  <div class="package-tag">Corporate Edition</div>
+                  <h3 class="package-title">Hidden Cavallino – Team Experience Challenge</h3>
 
-                <div class="package-list-title">Come funziona</div>
-                <ul class="package-list">
-                  <li>Mappa ufficiale con punti QR e itinerario consigliato.</li>
-                  <li>Contenuti sbloccabili: schede culturali, curiosità, fiabe per bambini.</li>
-                  <li>Possibilità di prenotare attività incluse (natura, cultura, sport, sapori).</li>
-                  <li>Premiazione finale con aperitivo e consegna gadget.</li>
-                </ul>
+                  <p class="package-subtitle">
+                    Un’esperienza di team building tra natura, laguna e storia locale: prove, logica e collaborazione
+                    per rafforzare la coesione del gruppo in un ambiente unico.
+                  </p>
 
-                <p class="package-subsection"><em>Disponibile in bassa stagione (ottobre–novembre).</em></p>
+                  <div class="package-list-title">Cosa prevede</div>
+                  <ul class="package-list">
+                    <li>Briefing iniziale con kit squadra e mappa interattiva.</li>
+                    <li>QR code nascosti con sfide di cultura, problem solving e orientamento.</li>
+                    <li>Mini-missioni cooperative (logica, creatività, osservazione).</li>
+                    <li>Attività outdoor: bike tour, kayak, escursioni guidate.</li>
+                    <li>Premiazione finale con aperitivo e gadget dedicati.</li>
+                  </ul>
 
-                <div class="package-list-title">Opzioni disponibili</div>
-                <div class="options-grid">
+                  <p class="package-subsection"><em>Ideale per workshop, retreat e giornate incentive.</em></p>
 
-                  <div class="option-card">
-                    <div class="option-title">Corporate Edition – 2 giorni / 1 notte</div>
-                    <div class="option-text">
-                      Pensata per team aziendali: briefing iniziale, attività guidate, orienteering,
-                      sfida a punti e premiazione finale.
+                  <div class="package-footer">
+                    <div class="package-note">
+                      Un format dinamico che unisce team building, scoperta e motivazione.
                     </div>
+                    <button class="btn btn-primary"
+                      onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
+                      Prenota Corporate Edition
+                    </button>
                   </div>
+                </article>
 
-                  <div class="option-card">
-                    <div class="option-title">Family Edition – fino a 4 giorni / 3 notti</div>
-                    <div class="option-text">
-                      Il format più completo per famiglie: fiabe nelle tappe, percorsi natura-cultura-sport,
-                      attività dedicate ai bambini e finale con premi.
+                <!-- Family Edition -->
+                <article class="package-card reveal">
+                  <div class="package-tag">Family & Group Edition</div>
+                  <h3 class="package-title">Hidden Cavallino – Family & Group Adventure</h3>
+
+                  <p class="package-subtitle">
+                    Un percorso di esplorazione per famiglie, coppie e piccoli gruppi: natura, racconti locali
+                    e tappe interattive per vivere il territorio con leggerezza e curiosità.
+                  </p>
+
+                  <div class="package-list-title">Come funziona</div>
+                  <ul class="package-list">
+                    <li>Mappa ufficiale con itinerario natura–cultura–laguna.</li>
+                    <li>QR code con leggende, curiosità e storie del territorio.</li>
+                    <li>Mini-sfide pensate per coinvolgere grandi e piccoli.</li>
+                    <li>Attività prenotabili: bike tour, laboratori, degustazioni.</li>
+                    <li>Premio simbolico finale e gadget ricordo.</li>
+                  </ul>
+
+                  <p class="package-subsection"><em>Disponibile fino a 4 giorni / 3 notti.</em></p>
+
+                  <div class="package-list-title">Ideale per</div>
+                  <ul class="package-list">
+                    <li>Famiglie con bambini.</li>
+                    <li>Coppie e gruppi di amici.</li>
+                    <li>Over 50 amanti dello slow tourism.</li>
+                  </ul>
+
+                  <div class="package-footer">
+                    <div class="package-note">
+                      Un’avventura accessibile e divertente per scoprire la laguna passo dopo passo.
                     </div>
+                    <button class="btn btn-primary"
+                      onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
+                      Prenota Family & Group Edition
+                    </button>
                   </div>
+                </article>
 
-                </div>
+              </div>
 
-                <div class="package-list-title">Dettagli chiave</div>
-                <ul class="package-list">
-                  <li>Tema: esplorazione, gioco, narrazione.</li>
-                  <li>Target: famiglie, aziende, coppie, gruppi, over 50.</li>
-                  <li>Periodo consigliato: ottobre–novembre.</li>
-                </ul>
+              </div><!-- end packages-row -->
 
-                <div class="package-footer">
-                  <div class="package-note">
-                    Vivi Cavallino-Treporti come una vera avventura: esplora, scopri e sblocca premi.
-                  </div>
-                  <button class="btn btn-primary"
-                    onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">
-                    Prenota Hidden Cavallino
-                  </button>
-                </div>
-              </article>
 
-              <!-- Lagoon Slow -->
+              <!-- LAGOON SLOW -->
               <article class="package-card reveal">
                 <div class="package-tag">Pacchetto 2</div>
                 <h3 class="package-title">Lagoon Slow – 5 giorni tra Natura & Cultura</h3>
 
                 <p class="package-subtitle">
-                  Un percorso slow pensato per scoprire la laguna con ritmi distesi: natura, cultura,
+                  Un programma slow per scoprire la laguna con ritmi distesi: natura, cultura,
                   gastronomia e panorami che cambiano durante la giornata.
                 </p>
 
                 <div class="package-list-title">Cosa include</div>
                 <ul class="package-list">
                   <li>Pernottamento in strutture aderenti (campeggi o hotel).</li>
-                  <li>Programma completo di 5 giorni: natura, storia, sapori e panorami.</li>
+                  <li>Programma completo di 5 giorni tra natura, storia e sapori.</li>
                   <li>Due varianti: <strong>Active Experience</strong> e <strong>Relax & Discovery</strong>.</li>
                   <li>Escursioni tra dune, pinete, borghi e aree lagunari.</li>
                   <li>Visite culturali: Museo Pisani, Via dei Forti, punti panoramici.</li>
-                  <li>Attività slow: tour al tramonto, percorsi benessere e gastronomici.</li>
+                  <li>Attività slow: tour al tramonto, percorsi benessere, degustazioni.</li>
                 </ul>
 
                 <div class="package-list-title">Pacchetti disponibili</div>
@@ -1103,7 +1150,7 @@
                   <div class="option-card">
                     <div class="option-title">Pacchetto A – Active Experience</div>
                     <div class="option-text">
-                      E-bike tour, birdwatching, raccolta ortaggi, cooking experience, visita a Lio Piccolo
+                      E-bike tour, birdwatching, cooking experience, visita a Lio Piccolo
                       e History Ride: il territorio vissuto attivamente.
                     </div>
                   </div>
@@ -1111,8 +1158,8 @@
                   <div class="option-card">
                     <div class="option-title">Pacchetto B – Relax & Discovery</div>
                     <div class="option-text">
-                      Passeggiate lente tra borghi e pinete, giornate benessere, escursioni in laguna,
-                      Venezia slow e degustazioni tipiche.
+                      Passeggiate lente tra borghi e pinete, giornate benessere, escursioni
+                      in laguna, Venezia slow e degustazioni tipiche.
                     </div>
                   </div>
 
@@ -1145,14 +1192,14 @@
 
               <h4 class="packages-aside-title">Valorizza il territorio</h4>
               <p class="packages-aside-text">
-                I pacchetti sono realizzati in collaborazione con operatori locali
-                per offrire esperienze autentiche e sostenibili.
+                I pacchetti sono realizzati con operatori locali per garantire esperienze
+                autentiche, sostenibili e coerenti con l’identità del territorio.
               </p>
 
               <ul class="packages-aside-list">
-                <li>Adatti a famiglie, coppie e piccoli gruppi.</li>
+                <li>Adatti a famiglie, coppie, gruppi e aziende.</li>
                 <li>Attivi in primavera e autunno.</li>
-                <li>Collaborazione con guide e realtà territoriali.</li>
+                <li>In collaborazione con guide e realtà territoriali.</li>
                 <li>Personalizzabili su richiesta.</li>
               </ul>
 
@@ -1161,6 +1208,7 @@
                 Richiedi disponibilità
               </button>
             </aside>
+
           </div>
         </div>
       </section>
