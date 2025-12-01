@@ -8,116 +8,120 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-    :root {
-        --sand: #f4efe7;
-        --beige: #e8e0d4;
-        --blue: #1e4d6b;
-        --dark: #1d1d1d;
-        --shadow: rgba(0,0,0,0.07);
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        background: var(--sand);
-        color: var(--dark);
-        font-family: 'Inter', sans-serif;
-    }
-
-    .container {
-        max-width: 880px;
-        margin: auto;
-        padding: 24px;
-    }
-
-    /* FORM INTRO */
-    #intro {
-        padding: 80px 20px;
-        text-align: center;
-        animation: fadeIn 1s ease;
-    }
-
-    h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: var(--blue);
-        font-weight: 600;
-    }
-
-    input {
-        padding: 14px 18px;
-        width: 280px;
-        font-size: 16px;
-        border-radius: 12px;
-        border: 1px solid #ccc;
-        background: white;
-    }
-
-    button {
-        margin-top: 20px;
-        padding: 14px 28px;
-        font-size: 16px;
-        border: none;
-        border-radius: 12px;
-        background: var(--blue);
-        color: white;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    button:hover { background: #163a50; }
-
-    /* CONTENT */
-    #content {
-        display: none;
-        animation: fadeIn 1s ease;
-    }
-
-    .welcome {
-        font-family: "Playfair Display", serif;
-        font-size: 26px;
-        margin-top: 20px;
-        text-align: center;
-        color: var(--blue);
-    }
-
-    .hero {
-        width: 100%;
-        border-radius: 16px;
-        margin: 35px 0;
-        box-shadow: 0 4px 14px var(--shadow);
-    }
-
-    /* LANG TITLES */
-    .lang {
-        font-size: 22px;
-        font-family: "Playfair Display", serif;
-        color: var(--blue);
-        margin-top: 50px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid var(--beige);
-        padding-bottom: 4px;
-        display: inline-block;
-    }
-
-    h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 22px;
-        color: var(--blue);
-        margin-top: 24px;
-    }
-
-    p {
-        line-height: 1.65;
-        margin-bottom: 14px;
-        font-size: 16px;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+:root {
+  --primary: #008037;
+  --accent: #F58220;
+  --blue: #0054A6;
+  --bg: #ffffff;
+  --bg-alt: #f5f7f5;
+  --text: #111827;
+  --text-soft: #6b7280;
+  --border: #e5e7eb;
+  --radius: 16px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+.container {
+  max-width: 860px;
+  margin: auto;
+  padding: 2rem;
+}
+#intro {
+  padding: 6rem 1rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+}
+.intro-sub {
+  color: var(--text-soft);
+  font-size: 0.97rem;
+  margin-bottom: 1.6rem;
+}
+input {
+  padding: 0.85rem 1.1rem;
+  width: 260px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+}
+input:focus { border-color: var(--primary); }
+button {
+  margin-top: 1.2rem;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+button:hover {
+  background: #006c2f;
+  transform: translateY(-1px);
+}
+#content {
+  display: none;
+  animation: fadeIn 0.8s ease;
+}
+.welcome {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 2.4rem;
+}
+.hero {
+  width: 100%;
+  border-radius: 22px;
+  margin: 2rem 0;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+.lang {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid var(--primary);
+  padding-left: 0.6rem;
+}
+h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 1.4rem 0 0.8rem;
+}
+p {
+  font-size: 0.98rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.story-card {
+  background: var(--bg-alt);
+  padding: 1.4rem 1.6rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin: 1.5rem 0 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
@@ -128,7 +132,7 @@
     <!-- STEP 1 -->
     <section id="intro">
         <h1>Benvenuti nell’Experience di Cavallino-Treporti</h1>
-        <p style="font-size:16px; margin-bottom:24px;">Inserite il nome della vostra famiglia per iniziare il percorso.</p>
+        <p class="intro-sub">Inserite il nome della vostra famiglia per iniziare il percorso.</p>
 
         <input type="text" id="family" placeholder="Es. Famiglia Bianchi">
         <br>
@@ -170,11 +174,9 @@
 
         <h2>Fiaba: Il Faro, la Sirena e la Luce degli Scacchi</h2>
 
-        <p>
-        C’era una volta, proprio all’estremità della lunga spiaggia di Cavallino-Treporti, un faro molto speciale...
-        </p>
-
-        <p><em>(Fiaba completa incollata integralmente qui – già perfetta stilisticamente. Se vuoi, la impagino in card separata.)</em></p>
+        <div class="story-card">
+        <p><em>(Fiaba completa incollata integralmente qui – già perfetta stilisticamente.)</em></p>
+        </div>
 
 
         <!-- ENG -->
@@ -204,7 +206,9 @@
         </p>
 
         <h2>The Fairy Tale: The Lighthouse, the Mermaid, and the Chessboard Light</h2>
+        <div class="story-card">
         <p><em>(Full fairy tale text inserted here.)</em></p>
+        </div>
 
 
         <!-- DEU -->
@@ -233,7 +237,9 @@
         </p>
 
         <h2>Märchen: Der Leuchtturm, die Meerjungfrau und das Schachbrettlicht</h2>
+        <div class="story-card">
         <p><em>(Full fairy tale text inserted here.)</em></p>
+        </div>
 
     </section>
 
